@@ -4,7 +4,7 @@ import (
 	"context"
 	"crypto/tls"
 
-	"github.com/micro/cli/v2"
+	"github.com/owncloud/ocis-pkg/v2/flag"
 	"github.com/owncloud/ocis-pkg/v2/log"
 )
 
@@ -20,7 +20,7 @@ type Options struct {
 	Version   string
 	Address   string
 	Context   context.Context
-	Flags     []cli.Flag
+	Flags     []flag.Flag
 }
 
 // newOptions initializes the available default options.
@@ -79,7 +79,7 @@ func Context(ctx context.Context) Option {
 }
 
 // Flags provides a function to set the flags option.
-func Flags(flags ...cli.Flag) Option {
+func Flags(flags ...flag.Flag) Option {
 	return func(o *Options) {
 		o.Flags = append(o.Flags, flags...)
 	}
